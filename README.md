@@ -1,2 +1,2 @@
 # redis
-redis相关总结
+redis相关总结啊哈哈
