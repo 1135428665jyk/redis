@@ -31,7 +31,16 @@
 
 ### 3.安装redis
 ```bash
-1.
-
+wget https://download.redis.io/releases/redis-6.2.1.tar.gz
+tar xzf redis-6.2.1.tar.gz
+cd redis-6.2.1
+make
+过程中可make编译失败，需要在linux终端执行以下命令
+最新的redis6.0 需要gcc 5以上，先升级gcc 
+sudo yum install centos-release-scl
+sudo yum install devtoolset-7-gcc*
+scl enable devtoolset-7 bash
+make distclean清理以下然后再执行make
+make 
 ```
 
