@@ -44,3 +44,14 @@ make distclean清理以下然后再执行make
 make 
 ```
 
+### 4.redis启动
+```bash
+    //启动服务
+    redis-server redis.conf 
+    //开启客户端
+    redis-cli -p 6380 
+    //测试连接成功
+    ping
+    
+```
+
