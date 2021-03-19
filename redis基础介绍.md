@@ -46,12 +46,24 @@ make
 
 ### 4.redis启动
 ```bash
-    //启动服务
-    redis-server redis.conf 
-    //开启客户端
-    redis-cli -p 6380 
-    //测试连接成功
-    ping
+//启动服务
+redis-server redis.conf 
+//开启客户端
+redis-cli -p 6380 
+//测试连接成功
+ping
+    
+```
+
+### 5.redis配置
+```bash
+//查看配置
+config get config_name
+//设置配置属性
+config set config_name target
+//获取所有属性
+config get *
+//常用配置说明
     
 ```
 
