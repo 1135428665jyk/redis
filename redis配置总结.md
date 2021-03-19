@@ -288,9 +288,8 @@ dbfilename dump.rdb
 dir ./
 #指定存储的位置路径
 
-
 ```
-
+```bash
 ################################# REPLICATION #################################
 
 # Master-Slave replication. Use slaveof to make a Redis instance a copy of
@@ -480,6 +479,9 @@ slave-priority 100
 # By default min-slaves-to-write is set to 0 (feature disabled) and
 # min-slaves-max-lag is set to 10.
 
+```
+
+```bash
 ################################## SECURITY ###################################
 
 # Require clients to issue AUTH <PASSWORD> before processing any other
@@ -514,6 +516,9 @@ slave-priority 100
 # Please note that changing the name of commands that are logged into the
 # AOF file or transmitted to slaves may cause problems.
 
+```
+
+```bash
 ################################### LIMITS ####################################
 
 # Set the max number of connected clients at the same time. By default
@@ -611,6 +616,9 @@ slave-priority 100
 #
 # maxmemory-samples 5
 
+```
+
+```bash
 ############################## APPEND ONLY MODE ###############################
 
 # By default Redis asynchronously dumps the dataset on disk. This mode is
@@ -727,6 +735,8 @@ auto-aof-rewrite-min-size 64mb
 # will be found.
 aof-load-truncated yes
 
+```
+```bash
 ################################ LUA SCRIPTING  ###############################
 
 # Max execution time of a Lua script in milliseconds.
@@ -745,6 +755,8 @@ aof-load-truncated yes
 # Set it to 0 or a negative value for unlimited execution without warnings.
 lua-time-limit 5000
 
+```
+```bash
 ################################ REDIS CLUSTER  ###############################
 #
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -853,6 +865,8 @@ lua-time-limit 5000
 # In order to setup your cluster make sure to read the documentation
 # available at http://redis.io web site.
 
+```
+```bash
 ################################## SLOW LOG ###################################
 
 # The Redis Slow Log is a system to log queries that exceeded a specified
@@ -877,6 +891,8 @@ slowlog-log-slower-than 10000
 # You can reclaim memory used by the slow log with SLOWLOG RESET.
 slowlog-max-len 128
 
+```
+```bash
 ################################ LATENCY MONITOR ##############################
 
 # The Redis latency monitoring subsystem samples different operations
@@ -898,6 +914,8 @@ slowlog-max-len 128
 # "CONFIG SET latency-monitor-threshold <milliseconds>" if needed.
 latency-monitor-threshold 0
 
+```
+```bash
 ############################# EVENT NOTIFICATION ##############################
 
 # Redis can notify Pub/Sub clients about events happening in the key space.
@@ -1090,6 +1108,8 @@ hz 10
 # big latency spikes.
 aof-rewrite-incremental-fsync yes
 
+```
+```bash
 ################################## INCLUDES ###################################
 
 # Include one or more other config files here.  This is useful if you
@@ -1099,3 +1119,10 @@ aof-rewrite-incremental-fsync yes
 #
 # include /path/to/local.conf
 # include /path/to/other.conf
+
+
+```
+
+
+
+
