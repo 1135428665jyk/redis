@@ -110,6 +110,7 @@ tcp-backlog 511
 
 # Close the connection after a client is idle for N seconds (0 to disable)
 timeout 0
+#连接超时时间
 
 # TCP keepalive.
 #
@@ -129,13 +130,14 @@ tcp-keepalive 0
 
 ```
 
-
+```bash
 ################################# GENERAL #####################################
 
 # By default Redis does not run as a daemon. Use 'yes' if you need it.
 # Note that Redis will write a pid file in /var/run/redis.pid when daemonized.
 # NOT SUPPORTED ON WINDOWS daemonize no
-
+daemonize yes 
+//yes表示redis服务器后台运行
 # If you run Redis from upstart or systemd, Redis can interact with your
 # supervision tree. Options:
 #   supervised no      - no supervision interaction
@@ -165,6 +167,7 @@ tcp-keepalive 0
 # notice (moderately verbose, what you want in production probably)
 # warning (only very important / critical messages are logged)
 loglevel notice
+//使用redis-server 6389.conf --loglevel warning 会覆盖配置文件中的配置
 
 # Specify the log file name. Also 'stdout' can be used to force
 # Redis to log on the standard output.
@@ -183,6 +186,10 @@ logfile ""
 # a different one on a per-connection basis using SELECT <dbid> where
 # dbid is a number between 0 and 'databases'-1
 databases 16
+#设置数据库数量16个，默认选择1
+
+
+```
 
 ################################ SNAPSHOTTING  ################################
 #
