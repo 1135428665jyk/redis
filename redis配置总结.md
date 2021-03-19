@@ -228,9 +228,11 @@ databases 16
 #   save ""
 
 save 900 1
+#900s有一个key改变，进行持久化
 save 300 10
-save 60 10000
-
+#300s内有10个key发生改变，进行持久化
+save 60 10000 
+#60s内有10000个key发生改变，进行持久化操作
 # By default Redis will stop accepting writes if RDB snapshots are enabled
 # (at least one save point) and the latest background save failed.
 # This will make the user aware (in a hard way) that data is not persisting
@@ -245,12 +247,17 @@ save 60 10000
 # continue to work as usual even if there are problems with disk,
 # permissions, and so forth.
 stop-writes-on-bgsave-error yes
+#会创建一个新的后台进程 dump rdb
+#假设创建快照（硬盘上产生rdb文件）需要20s，redis主进程在这20s内会继续接受客户端命令，20s没创建快照出错，
+#那么redis会拒绝写入
 
 # Compress string objects using LZF when dump .rdb databases?
 # For default that's set to 'yes' as it's almost always a win.
 # If you want to save some CPU in the saving child set it to 'no' but
 # the dataset will likely be bigger if you have compressible values or keys.
 rdbcompression yes
+#采用LZF来压缩字符串，默认是yes，如果想要在子进程中节省CPU,就设置为no,
+#如果你有压缩的值或者键，数据就会非常大
 
 # Since version 5 of RDB a CRC64 checksum is placed at the end of the file.
 # This makes the format more resistant to corruption but there is a performance
@@ -260,9 +267,15 @@ rdbcompression yes
 # RDB files created with checksum disabled have a checksum of zero that will
 # tell the loading code to skip the check.
 rdbchecksum yes
+#CRC64检验放在了文件尾
+#会使文件更加耐受攻击，当保存或者加载RDB文件时，会消耗10%的性能，为了达到最大的性能，可以关闭这个属性
+
 
 # The filename where to dump the DB
 dbfilename dump.rdb
+#工作目录
+#导出的数据库会被写入到这个目录中
+
 
 # The working directory.
 #
@@ -273,6 +286,7 @@ dbfilename dump.rdb
 #
 # Note that you must specify a directory here, not a file name.
 dir ./
+#指定存储的位置路径
 
 
 ```
