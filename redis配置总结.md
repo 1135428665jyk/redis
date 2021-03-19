@@ -62,7 +62,7 @@ redis配置文件总结及实验
 # JUST COMMENT THE FOLLOWING LINE.
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 bind 127.0.0.1
-#绑定ip地址，如果注释，任何都能访问
+#绑定ip地址，如果注释掉，任何都能访问
 
 
 # Protected mode is a layer of security protection, in order to avoid that
@@ -83,7 +83,8 @@ bind 127.0.0.1
 # even if no authentication is configured, nor a specific set of interfaces
 # are explicitly listed using the "bind" directive.
 protected-mode yes
-#保护模式默认开启，如果没有设置绑定地址或者密码，远程连接可能失败，需要将protected-mode设置为false，或者设置密码
+#保护模式默认开启，如果没有设置绑定地址或者密码，远程连接可能失败，
+# 需要将protected-mode设置为false，或者设置密码
 
 # Accept connections on the specified port, default is 6379 (IANA #815344).
 # If port 0 is specified Redis will not listen on a TCP socket.
@@ -107,26 +108,32 @@ tcp-backlog 511
 #
 # unixsocket /tmp/redis.sock
 # unixsocketperm 700
+#指定unix套接字路径，用于监听进入的连接
+#当没有指定时，redis不会监听套接字
+
 
 # Close the connection after a client is idle for N seconds (0 to disable)
 timeout 0
-#连接超时时间
+#连接超时时间，当客户端连接超时N秒自动断开客户端，0表示不会关闭连接
 
 # TCP keepalive.
 #
 # If non-zero, use SO_KEEPALIVE to send TCP ACKs to clients in absence
 # of communication. This is useful for two reasons:
+# 如果非0，使用SO_KEEPALIVE去发送TCP ACKS去客户端给客户端断开连接
 #
-# 1) Detect dead peers.
+# 1) Detect dead peers. 
+#检测挂掉的节点
 # 2) Take the connection alive from the point of view of network
 #    equipment in the middle.
-#
+#强制中间的网络设置考虑连接是有效的
 # On Linux, the specified value (in seconds) is the period used to send ACKs.
 # Note that to close the connection the double of the time is needed.
 # On other kernels the period depends on the kernel configuration.
 #
 # A reasonable value for this option is 60 seconds.
 tcp-keepalive 0
+
 
 ```
 
@@ -140,10 +147,10 @@ daemonize yes
 //yes表示redis服务器后台运行
 # If you run Redis from upstart or systemd, Redis can interact with your
 # supervision tree. Options:
-#   supervised no      - no supervision interaction
-#   supervised upstart - signal upstart by putting Redis into SIGSTOP mode
-#   supervised systemd - signal systemd by writing READY=1 to $NOTIFY_SOCKET
-#   supervised auto    - detect upstart or systemd method based on
+#   supervised no      - no supervision interaction 无监控互动
+#   supervised upstart - signal upstart by putting Redis into SIGSTOP mode  redis进入SIGSTOP模式
+#   supervised systemd - signal systemd by writing READY=1 to $NOTIFY_SOCKET  通过写入READY=1 到 $NOTIFY_SOCKET
+#   supervised auto    - detect upstart or systemd method based on 检测upstart 或者systemd
 #                        UPSTART_JOB or NOTIFY_SOCKET environment variables
 # Note: these supervision methods only signal "process is ready."
 #       They do not enable continuous liveness pings back to your supervisor.
@@ -151,33 +158,41 @@ daemonize yes
 
 # If a pid file is specified, Redis writes it where specified at startup
 # and removes it at exit.
+#如果pid文件被指定，redis会在启动的时候写入文件，关闭的时候移除文件
+
 #
 # When the server runs non daemonized, no pid file is created if none is
 # specified in the configuration. When the server is daemonized, the pid file
 # is used even if not specified, defaulting to "/var/run/redis.pid".
-#
+#当服务器已非守护进程运行的时候，不会创建pid文件，当服务是守护进程，pid文件即使没有指定依然可以使用，默认的目录为
+#/var/run/redis.pid
+
+
 # Creating a pid file is best effort: if Redis is not able to create it
 # nothing bad happens, the server will start and run normally.
 # NOT SUPPORTED ON WINDOWS pidfile /var/run/redis.pid
 
 # Specify the server verbosity level.
 # This can be one of:
-# debug (a lot of information, useful for development/testing)
-# verbose (many rarely useful info, but not a mess like the debug level)
-# notice (moderately verbose, what you want in production probably)
-# warning (only very important / critical messages are logged)
+# debug (a lot of information, useful for development/testing) 用于开发和测试
+# verbose (many rarely useful info, but not a mess like the debug level) 不会像debug这么乱
+# notice (moderately verbose, what you want in production probably) 适合在生产环境运行
+# warning (only very important / critical messages are logged) 只有重要和关键信息会抛出
 loglevel notice
-//使用redis-server 6389.conf --loglevel warning 会覆盖配置文件中的配置
+
 
 # Specify the log file name. Also 'stdout' can be used to force
 # Redis to log on the standard output.
 logfile ""
+#指定日志文件的名字，'stdout可以强制输出到控制台'
 
 # To enable logging to the Windows EventLog, just set 'syslog-enabled' to
 # yes, and optionally update the other syslog parameters to suit your needs.
 # If Redis is installed and launched as a Windows Service, this will
 # automatically be enabled.
 # syslog-enabled no
+#启动系统日志输出设置为yes
+
 
 # Specify the source name of the events in the Windows Application log.
 # syslog-ident redis
@@ -186,11 +201,10 @@ logfile ""
 # a different one on a per-connection basis using SELECT <dbid> where
 # dbid is a number between 0 and 'databases'-1
 databases 16
-#设置数据库数量16个，默认选择1
-
+#设置数据库数量16个，默认选择0 dbib介于0到dbid-1之间
 
 ```
-
+```bash
 ################################ SNAPSHOTTING  ################################
 #
 # Save the DB on disk:
@@ -259,6 +273,9 @@ dbfilename dump.rdb
 #
 # Note that you must specify a directory here, not a file name.
 dir ./
+
+
+```
 
 ################################# REPLICATION #################################
 

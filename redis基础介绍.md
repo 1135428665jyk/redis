@@ -61,6 +61,8 @@ ping
 config get config_name
 //设置配置属性
 config set config_name target
+//覆盖配置文件中的配置
+redis-server 6389.conf --loglevel warning 
 //获取所有属性
 config get *
 //常用配置说明
