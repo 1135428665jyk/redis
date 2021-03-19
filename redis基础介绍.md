@@ -147,6 +147,12 @@ vm-max-memory 0
 vm-page-size 32
 #swap文件分成了多个page,一个对象可以保存在多个page上，，但是一个page不能被多个对象共享，
 
+vm-paages 123213123
+#设置swap文件中的page数量，由于页表是放在内存中，磁盘上每8个pages将消耗1byte的内存
+
+vm-max-threads 4
+#设置访问swap的线程数
+
 ```
 ### 5.redis数据类型
 String ,List ,Hash ,Set ,Zset五中数据类型
