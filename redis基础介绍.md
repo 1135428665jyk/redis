@@ -219,9 +219,8 @@ type key
 返回键的类型
 
 
-
 ```
-
+### 7.Redis String类型
 
 
 
