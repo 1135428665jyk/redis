@@ -167,6 +167,61 @@ String ,List ,Hash ,Set ,Zset五中数据类型
 | Set | hash实现，不重复 | 共同好友，访问某一网站的独立IP,共同好友推荐 |
 | Zset | 有序集合 | 排行榜，带权重的消息队列 |
 
+### 6.Redis key命令
+
+```bash
+del key
+key存在时删除key
+
+dunp key
+序列化给定key,并返回序列化的值
+
+exists key
+检查给定的key是否存在
+
+expire key seconds
+给key设置过期时间
+
+exporeat key timestamp
+设置过期时间，expireat 命令参数是UNIX的时间戳
+
+pexpire key millseconds
+设置key的过期时间以毫秒记
+
+pexpireat key millseconds-timestamp
+设置key的过期时间时间戳以毫秒记
+
+keys pattern 
+查找所有给定模式的key
+
+move key db
+将key移动到某一个db中
+
+persist key 
+移除key的过期时间，key将永远保持
+
+pttl key 
+已毫秒给单位返回key剩余的过期时间
+
+ttl key 
+已秒为单位返回key剩余的过期时间
+
+randomkey key 
+从当前数据库中随机返回key
+
+rename key newkey
+将key的名字设置为newkey
+
+renamenx key newkey
+当newkey不存在时将key名字修改为newkey
+
+type key
+返回键的类型
+
+
+
+```
+
 
 
 
