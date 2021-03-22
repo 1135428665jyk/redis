@@ -222,5 +222,25 @@ type key
 ```
 ### 7.Redis String类型
 
+```bash
+Set key value 
+设定key的值
 
+Get key
+获取key的值
+
+GetRange key start end
+返回key中字符串值的子字符
+
+GetSet key value
+将指定的key设置为value，并返回key的旧值
+
+GetBit key offset 
+对key存储的字符串，获取指定偏移量上的位
+
+SetBit key offset
+设置或指定key偏移量上的位
+
+
+```
 
