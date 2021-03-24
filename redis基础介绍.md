@@ -241,6 +241,84 @@ GetBit key offset
 SetBit key offset
 设置或指定key偏移量上的位
 
+SetNx key value (redis用作分布式锁)
+只有key不存在的才能设置key为value
+
+SetRange key offset value
+用value参数复写key所存储的字符串值，从偏移量开始
+
+Strlen key
+返回key的长度
+
+Mset key value[key value]
+可以设置多个key和value
+
+MSetNx key value[key value]
+当多个key不存在的时候设置key value
+
+Psetex key milliseconds value
+毫秒为单位设置key的生存时间，不像setex以秒为单位设置key的生存时间
+
+Incr key
+key中存储的值+1
+
+IncrBy key increment
+将key所存储的值+increment
+
+IncrByFloat key increment
+将key所存储的值+浮点数increment
+
+Decr key
+将key所存储的值-1
+
+DecrBy key decrement;
+将key所存储的值-increment
+
+Append key value
+将key所存储的值末尾追加value
+
 
 ```
+### 8.Redis Hash类型
+hash可以存储2^32-1键值对
+```bash
+Hdel key field[field2]
+删除一个或多个哈希值
 
+Hexists key field
+key中是否存在field
+
+HgetAll key 
+获取哈希表中指定key的所有字段和值
+
+Hincrby key field increment
+为哈希key field添加increment
+
+IincrbyFloat key field increment
+为哈希key field添加浮点数increment
+
+hkeys key
+获取所有哈希表中的字段
+
+hlen key 
+获取key中字段的数量
+
+HMget key field[field2]
+同时获得多个给定字段的值
+
+HMset key field value [field2 value2]
+将多个key中field-value 设置到hash中
+
+HSet key field value
+将key field 设置为value
+
+HsetNx key field value
+没有key的时候能设置field value
+
+Hvals key
+获取哈希表中所有的值
+
+Hscan key cursor[Match pattern][Count count]
+迭代哈希表中键值对
+
+```
