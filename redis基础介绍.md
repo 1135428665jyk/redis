@@ -390,10 +390,101 @@ SDiff key1 [key2]
 SDiffStore destination key1 [key2]
 返回指定集合差集存储在destination中
 
+SInter key1 [key2]
+返回指定集合的交集
+
+SInterStore destination key1[key2]
+返回指定集合的交集并存储在destination中
+
+Sismember key member 
+判断member是否时key的成员
+
+Smove key destination member 
+将集合中成员member移动到destination中
+
+Spop key
+移除key
+
+SRangeMember key
+返回集合中一个或者多个成员
+
+Sunion key1 [key2]
+返回所有指定集合的并集
+
+SunionStore destination key1[key2]
+返回所有指定集合的并集存储在destination中
+
+SScan key cursor [Match pattern][Count count]
+迭代集合中的元素
 
 
 ```
+### 11.Redis Sorted Set类型
+通过哈希表实现，插入和删除的时间复杂度为O(1),最大成员数量2^32-1个元素
 
+```bash
+Zadd key score1 member1[score2 member2]
+向有序集合中添加成员member1
+
+Zcard key 
+获取有序集合的成员数
+
+Zcount key min max
+计算指定区间分数的成员数
+
+ZIncrBy key increment member
+有序集合中对指定成员的分数上加增量increment
+
+ZInterStore destination numberkeys key 
+计算给定的一个或多个有序集的交集并将结果存到新的有序集合中
+
+ZLexCount key min max
+指定区间内成员数
+
+Zrange key start stop
+返回有序集合start到stop所有成员
+
+ZrangeByLex key min max
+通过字典区间返回有序集合成员
+
+ZRangeScore key min max
+通过分数返回有序集合的指定区间内的成员
+
+ZRank key member
+返回有序集合指定成员的索引
+
+Zrem key member 
+移除集合中一个或多个成员
+
+ZremRangeByLex key min max 
+移除指定区间内的所有成员
+
+ZremRangeByRank key start stop
+移除指定排名的区间内的所有成员
+
+ZremRangeByScore key min max
+移除有序集合指定分数区间内的所有成员
+
+ZRevRange key start stop
+返回有序集合指定区间的成员，通过索引分数从高到低排列
+
+ZRevRangeByScore key min max
+返回有序集合指定区间，分数从高到底排列
+
+ZRevRank key member 
+返回有序集合指定成员排名，分数递减排名
+
+Zscore key member 
+返回有序集合成员分数
+
+ZunionStore destination numberkeys[key]
+指定一个或者多个集合的并集
+
+Zscan key cursor [match Pattern] [Count count]
+迭代有序集合中的元素
+
+
+```
 
 
 
