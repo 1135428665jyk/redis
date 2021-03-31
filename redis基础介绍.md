@@ -527,3 +527,29 @@ UnSubscribe channel
 
 ```
 ### 14.Redis 事务
+一次可以执行多个事务，但是事务不是原子性
+事务经历三个阶段：
+（1）开启事务
+（2）命令入队
+（3）执行事务
+
+```bash
+Multi
+开启事务
+
+Discard
+丢弃事务
+
+Exec
+执行事务
+
+UnWatch
+取消Watch命令对所有key的监视
+
+Watch key[key]
+监视一个key或者多个key
+
+```
+
+
+
