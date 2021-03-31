@@ -497,5 +497,33 @@ PFCount key
 PFMerge destkey sourcekey
 将多个HyperLogLog合并为一个HyperLoglog
 ```
+### 13.Redis 发布订阅
+订阅：
 
+![](.redis基础介绍_images/273f6efe.png)
 
+发布：
+
+![](.redis基础介绍_images/2d128221.png)
+
+```bash
+PSubscribe pattern[pattern] 
+订阅一个或者多个给定模式的频道
+
+PubSub subcommond[argument]
+查看订阅发布系统状态
+
+Publish channel message
+发布消息
+
+PunSubScribe[pattern]
+推定所有给定模式的的频道
+
+SubScribe channel [channels]
+订阅一个或多个频道的信息
+
+UnSubscribe channel
+退订给定频道
+
+```
+### 14.Redis 事务
