@@ -322,3 +322,78 @@ Hscan key cursor[Match pattern][Count count]
 迭代哈希表中键值对
 
 ```
+### 9.Redis List类型
+可以添加一个元素到列表的头部或者尾部，一个列表最多含2^32-1个元素
+```bash
+BlPop
+移除并获取列表的第一个元素，如果列表中没有元素会阻塞，直到等待超时或者发现有元素可以弹出为止
+
+BRPop
+移除并获取最后一个元素，如果列表没有元素会阻塞直到等待超时或者发现可以弹出元素为止
+
+BRPopLPush source destination
+从列表尾部弹出一个值，并且再另一个列表头部插入
+
+Lindex key index
+通过索引获取列表中的元素
+
+LLen key 
+获取列表的长度
+
+Lpop key
+从头部弹出元素
+
+RPop key
+从尾部弹出元素
+
+Lpush key value1
+从头部插入元素value1
+
+Rpush key value
+从尾部插入元素value
+
+Lpushx key value1
+将一个值插入已存在列表的头部
+
+Lrange key start end
+获取列表指定范围的元素
+
+Lrem key count value  
+移除列表指定位置的元素
+
+LSet key index value
+通过索引设置列表中的index位置的值
+
+Ltrim key start stop 
+对列表进行修剪，让列表只保留指定区域内的元素，不在指定区域内的元素都将被删除
+
+RPopLpush source destination
+从列表source尾部弹出元素再列表destination头部插入元素
+
+RPushx key value
+为已存在的列表添加值
+
+```
+### 10.Redis Set类型
+无序集合，意味着集合不能出现重复数据，Redis通过hash表实现，插入和删除的时间复杂度都是O(1)
+最大元素数：2^32-1
+```bash
+Sadd key member
+向集合中添加一个或多个member
+
+Scard key 
+获取集合的成员数
+
+SDiff key1 [key2]
+获取第一个集合和其他集合的差异
+
+SDiffStore destination key1 [key2]
+返回指定集合差集存储在destination中
+
+
+
+```
+
+
+
+
