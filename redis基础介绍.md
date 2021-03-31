@@ -485,6 +485,17 @@ Zscan key cursor [match Pattern] [Count count]
 
 
 ```
+### 12.Redis HyperLoglog类型
+基数类型，不同元素的个数
+```bash
+PFadd key element
+添加元素到key中
 
+PFCount key 
+返回给定HyperLoglog基数估计值
+
+PFMerge destkey sourcekey
+将多个HyperLogLog合并为一个HyperLoglog
+```
 
 
