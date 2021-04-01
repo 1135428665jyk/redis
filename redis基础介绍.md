@@ -745,10 +745,60 @@ redis-benchmark -h 127.0.0.1 -p 6379 -t set,lpush -n 10000 -q
 ```
 ![](.redis基础介绍_images/1bfdc814.png)
 
-### 22.Redis 分区
+### 22.Redis 分区技术
 
 
 
 
-### 23.Redis jedis
+### 23.Redis jedis操作
 
+
+```java
+//redis测试连接是否正常
+public class JedisTest {
+    public static void main(String[] args) {
+        Jedis jedis = new Jedis("localhost");
+        jedis.auth("123456");
+        System.out.println(jedis.ping());
+    }
+}
+
+//redis字符串get和set操作
+public class JedisTest {
+    public static void main(String[] args) {
+        Jedis jedis = new Jedis("localhost");
+        jedis.auth("123456");
+        jedis.set("test","test");
+        System.out.println(jedis.get("test"));
+    }
+}
+
+//redis列表基本操作
+public class JedisTest {
+    public static void main(String[] args) {
+        Jedis jedis = new Jedis("localhost");
+        jedis.auth("123456");
+        jedis.lpush("aa","1");
+        jedis.lpush("aa","2");
+        jedis.lpush("aa","3");
+        List<String> aa = jedis.lrange("aa", 0, -1);
+        for (String s : aa) {
+            System.out.println(s);
+        }
+    }
+}
+
+//redis所有key
+public class JedisTest {
+    public static void main(String[] args) {
+        Jedis jedis = new Jedis("localhost");
+        jedis.auth("123456");
+        Set<String> keys = jedis.keys("*");
+        Iterator<String> iterator = keys.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+    }
+}
+
+```
