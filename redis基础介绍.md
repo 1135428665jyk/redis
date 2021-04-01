@@ -591,6 +591,66 @@ SELECT Index
 ```
 ### 17.Redis 服务器
 Info可以查看redis服务器信息
+```bash
+BGRewriteAOF
+异步执行一个AOF文件重写操作
+
+BGsave
+异步保存数据库的数据到磁盘
+
+Client kill [ip][port]
+客户端关闭ip和端口
+
+Client list
+获取连接服务器的列表
+
+Client GetName
+获取连接的名称
+
+Client SetName
+设置当前连接名称
+
+Client Pause timeout
+在指定时间终止运行客户端的命令
+
+Cluster slots
+获取集群节点映射数组
+
+Command
+获取Redis命令
+
+Command Count
+获取redis命令总数
+
+Command getKeys
+获取给定命令的所有键
+
+Time
+获取当前服务器的时间
+
+Command info command-name
+指定redis命令描述的数组
+
+Config get parameter
+获取指定配置文件的值
+
+Config rewrite
+对启动redis的redis.config配置文件进行修改
+
+Config set Parameter value
+修改redis配置参数，无需修改
+
+Config ReserStat
+重置info命令中的某些统计数据
+
+Dbsize
+返回当前数据库的key数量
+
+Debug Object key
+获取key的调试信息
+
+```
+
 
 
 ### 18.Redis GEO操作
