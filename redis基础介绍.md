@@ -649,6 +649,39 @@ Dbsize
 Debug Object key
 获取key的调试信息
 
+Debug SegFault
+让redis服务器崩溃
+
+FlushAll
+删除所有的key
+
+FlushDB
+删除当前数据所有的key
+
+LastSave
+最后一次将redis成功保存到磁盘上的时间
+
+Monitor
+实时打印出redis服务器接收的命令，调试使用
+
+Role
+返回主从实例所属角色
+
+Save
+同步保存数据库到磁盘
+
+ShutDown
+异步保存数据库到磁盘并关闭服务器
+
+SlaveOf host port
+当前服务器变为服务器的从属服务器
+
+SlowLog subcommond [argument]
+管理redis的慢日志
+
+sync
+用于复制功能的内部命令
+
 ```
 
 
