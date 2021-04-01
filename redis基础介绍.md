@@ -572,7 +572,7 @@ ScriptLoad script
 将脚本加到缓存中并不立即执行这个脚本
 
 ```
-### 15.Redis 连接
+### 16.Redis 连接
 ```bash
 AUTH password
 验证密码是否正确
@@ -589,11 +589,11 @@ Quit
 SELECT Index
 切换到指定数据源
 ```
-### 15.Redis 服务器
+### 17.Redis 服务器
 Info可以查看redis服务器信息
 
 
-### 15.Redis GEO操作
+### 18.Redis GEO操作
 
 
 
