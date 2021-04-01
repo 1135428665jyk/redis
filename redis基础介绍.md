@@ -681,15 +681,33 @@ SlowLog subcommond [argument]
 
 sync
 用于复制功能的内部命令
-
 ```
-
-
 
 ### 18.Redis GEO操作
 
+存储地理位置，并对存储的信息进行操作
+```bash
+geoadd 
+添加地理坐标
 
+geopos
+获取地理坐标的位置
 
+geodist
+计算两个位置之间的距离
+
+georadius
+根据用户的经纬度来获取指定范围内地理位置集合
+
+georadiusbymember
+根据存储在位置集合里面的某个地点指定范围内的地理位置集合
+
+geohash
+返回一个或者多个对象的hash
+
+```
+
+### 18.Redis Stream
 
 
 
