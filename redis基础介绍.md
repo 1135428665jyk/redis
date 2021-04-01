@@ -706,8 +706,49 @@ geohash
 返回一个或者多个对象的hash
 
 ```
-
 ### 18.Redis Stream
 
 
+
+
+### 19.Redis 数据备份
+```bash
+SAVE
+创建当前数据库的备份
+
+BGSave
+备份文件
+
+
+```
+![](.redis基础介绍_images/8f4fd1b9.png)
+将备份的dump.db移动到这个文件夹下，重新启动服务即可
+
+### 20.Redis 安全
+Config get requirepass
+密码验证
+
+Config set requirepass "password"
+设置密码
+
+AUTH password
+验证密码
+
+### 21.Redis 性能测试
+
+```bash
+redis-benchmark [option][option value]
+redis性能测试
+
+redis-benchmark -h 127.0.0.1 -p 6379 -t set,lpush -n 10000 -q
+主机名。端口号，测试命令，请求书 仅显示query/sec值
+```
+![](.redis基础介绍_images/1bfdc814.png)
+
+### 22.Redis 分区
+
+
+
+
+### 23.Redis jedis
 
