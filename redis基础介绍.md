@@ -707,9 +707,18 @@ geohash
 
 ```
 ### 18.Redis Stream
+```bash
+可用于消息队列，redis本身就有一个Redis发布订阅来实现消息队列的功能，缺点是消息无法持久化，
+如果出现断网、宕机，消息就会被丢弃。
 
+Redis Stream提供了持久化和主备复制的功能，可以让任何客户端访问任何时刻的数据，并且记住
+每一个客户端的访问位置，保证消息不丢失。
 
+Redis Stream相对于Pub/Sub Stream可以保存历史发送消息
 
+可以基于Pub/Sub构建IRC,但是问题是Fire And Forgot,不保存任何信息，当redis发生重启后需要重新订阅频道
+
+```
 
 ### 19.Redis 数据备份
 ```bash
