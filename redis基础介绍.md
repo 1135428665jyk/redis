@@ -773,9 +773,6 @@ redis-benchmark -h 127.0.0.1 -p 6379 -t set,lpush -n 10000 -q
   对任何key都适合
 ```
 
-
-
-
 ### 23.Redis jedis操作
 
 ```java
