@@ -249,7 +249,7 @@ save 60 10000
 stop-writes-on-bgsave-error yes
 #会创建一个新的后台进程 dump rdb
 #假设创建快照（硬盘上产生rdb文件）需要20s，redis主进程在这20s内会继续接受客户端命令，20s没创建快照出错，
-#那么redis会拒绝写入
+#那么redis会拒绝写入，如果出现异常，拒绝新的写入。
 
 # Compress string objects using LZF when dump .rdb databases?
 # For default that's set to 'yes' as it's almost always a win.
